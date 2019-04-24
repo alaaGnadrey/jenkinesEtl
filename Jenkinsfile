@@ -10,7 +10,9 @@ pipeline {
         stage('Execute') {
             steps {
                 echo 'Executing..'
-                 sh 'python -u sqlExecuter.py'
+                python {
+                   command('python sqlExecuter.py')
+                }   
             } 
         }
         stage('Cleaning') {
