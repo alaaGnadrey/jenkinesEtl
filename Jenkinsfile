@@ -10,9 +10,10 @@ pipeline {
         stage('Execute') {
             steps {
                 echo 'Executing..'
-                withPythonEnv('python') {
+                /*withPythonEnv('python') {
                    sh 'python --version'
-                }       
+                } */
+                sh 'python -u sqlExecuter.py'      
             } 
         }
         stage('Cleaning') {
