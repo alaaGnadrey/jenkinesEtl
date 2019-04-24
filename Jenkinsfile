@@ -10,7 +10,7 @@ pipeline {
         stage('Execute') {
             steps {
                 echo 'Executing..'
-                withPythonEnv('python3') {
+                withPythonEnv('python') {
                    sh 'python --version'
                 }       
             } 
