@@ -1,5 +1,6 @@
 import sys
 import psycopg2
+import json
 
 def main():
     # print command line arguments
@@ -11,13 +12,14 @@ def main():
     cur.execute("select * from main.mobile_urls limit 1;")
     data = cur.fetchall()
 
-    if data:
-        print('data loaded with len = {0}'.format(len(data)))
+    if data and len(data):
+        print('data loaded with len = {0}'.format(json.dumps(data)))
+
     else:
         print('data is empty')
 
     cur.close() 
-    conn.close()
+    con.close()
 
 if __name__ == "__main__":
     print("sql exectuer main")
