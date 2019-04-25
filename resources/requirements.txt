@@ -1,3 +1,2 @@
-libpq-dev
 postgresql-dev
 psycopg2
