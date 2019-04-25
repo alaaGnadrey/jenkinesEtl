@@ -11,8 +11,12 @@ def main():
     cur = con.cursor()
     cur.execute("select * from main.mobile_urls limit 1;")
     data = np.array(cur.fetchall())
+
     if data:
-        print('data loaded with len = {0}'.format(len(data))
+        print('data loaded with len = {0}'.format(len(data)))
+    else:
+        print('data is empty')
+
     cur.close() 
     conn.close()
 

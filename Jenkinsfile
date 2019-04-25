@@ -4,14 +4,19 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                echo 'install requirements..'
-                sh 'pip install psycopg2'    
+                withPythonEnv('python') {
+                    // Creates the virtualenv before proceeding
+                    echo 'install requirements..'
+                    sh 'pip install -r resources/requirements.txt'    
+                }
             }
         }
         stage('Execute') {
             steps {
                 echo 'Executing..'
-                sh 'python -u -m resources.executors.sql_executer'      
+                withPythonEnv('python') {
+                   sh 'python -u -m resources.executors.sql_executer'      
+                }
             } 
         }
         stage('Cleaning') {
