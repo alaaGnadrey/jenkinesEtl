@@ -6,10 +6,8 @@ pipeline {
             steps {
                 withPythonEnv('some-python-installation') {
                     // Creates the virtualenv before proceeding
-                    if (fileExists('resources/requirements.txt')) {
-                        echo 'install requirements..'
-                        sh 'pip install -r resources/requirements.txt'    
-                    }
+                    echo 'install requirements..'
+                    sh 'pip install -r resources/requirements.txt'    
                 }
             }
         }
