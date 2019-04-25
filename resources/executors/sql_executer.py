@@ -13,7 +13,7 @@ def main():
     data = cur.fetchall()
 
     if data and len(data):
-        print('data loaded with len = {0}'.format(json.dumps(data)))
+        print('data = {0}'.format(json.dumps(data)))
 
     else:
         print('data is empty')
