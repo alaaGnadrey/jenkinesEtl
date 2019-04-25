@@ -4,16 +4,20 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                echo 'Preparing..'
+                withPythonEnv('some-python-installation') {
+                    // Creates the virtualenv before proceeding
+                    if (fileExists('resources/requirements.txt')) {
+                        echo 'install requirements..'
+                        sh 'pip install -r resources/requirements.txt'    
+                }
             }
         }
         stage('Execute') {
             steps {
                 echo 'Executing..'
-                /*withPythonEnv('python') {
-                   sh 'python --version'
-                } */
-                sh 'python -u sqlExecuter.py'      
+                 withPythonEnv('some-python-installation') {
+                    sh 'python -u -m resources.executors.sql_executer'      
+                 }
             } 
         }
         stage('Cleaning') {
@@ -22,4 +26,4 @@ pipeline {
             }
         }
     }
-}
+    }
