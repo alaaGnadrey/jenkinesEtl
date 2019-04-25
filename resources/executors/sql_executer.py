@@ -1,6 +1,5 @@
 import sys
 import psycopg2
-import numpy as np
 
 def main():
     # print command line arguments
@@ -10,7 +9,7 @@ def main():
     port= '5439', user= 'crossense', password= 'txKW9hkN4kKN4aoP')
     cur = con.cursor()
     cur.execute("select * from main.mobile_urls limit 1;")
-    data = np.array(cur.fetchall())
+    data = cur.fetchall()
 
     if data:
         print('data loaded with len = {0}'.format(len(data)))
