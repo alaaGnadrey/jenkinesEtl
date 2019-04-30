@@ -1,5 +1,5 @@
 pipeline {
-    timestamps{
+    timestamp{
     agent any
 
     stages {
