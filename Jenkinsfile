@@ -1,4 +1,5 @@
 pipeline {
+    timestamps{
     agent any
 
     stages {
@@ -24,5 +25,6 @@ pipeline {
                 echo 'Cleaning....'
             }
         }
+    }
     }
 }
