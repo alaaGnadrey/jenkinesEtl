@@ -15,7 +15,8 @@ timestamps {
                         steps {
                             echo 'Executing..'
                             withPythonEnv('python') {
-                            sh 'python -u -m resources.executors.sql_executer'      
+                            sh 'python -u -m resources.pipelines.poc_pipeline.execute_step1'   
+                            sh 'python -u -m resources.pipelines.poc_pipeline.execute_step2'   
                             }
                         } 
                     }
