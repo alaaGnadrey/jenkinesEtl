@@ -1,9 +1,9 @@
 import pandas as pd
 
 
-output_path = "resources/pipelines/poc_pipeline/"
-input_file_path = output_path + 'test2.txt'
-output_file_path = output_path + 'test2.txt'
+file_base_path = "resources/pipelines/poc_pipeline/"
+input_file_path = file_base_path + 'test1.txt'
+output_file_path = file_base_path + 'test2.txt'
 
 df = pd.read_csv(input_file_path, sep = "\t")
 df.head()
