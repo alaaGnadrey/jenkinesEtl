@@ -11,7 +11,6 @@ agent any
             }
         }
         stage('Execute') {
-            echo 'Executing..'
             stages{
                 stage('execute_step1'){
                     steps {
