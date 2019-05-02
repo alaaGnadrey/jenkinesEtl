@@ -11,13 +11,22 @@ agent any
             }
         }
         stage('Execute') {
-            steps {
-                echo 'Executing..'
-                withPythonEnv('python') {
-                sh 'python -u -m resources.pipelines.poc_pipeline.execute_step1'   
-                sh 'python -u -m resources.pipelines.poc_pipeline.execute_step2'   
+            stages{
+                stage('execute_step1'){
+                    steps {
+                        withPythonEnv('python') {
+                            sh 'python -u -m resources.pipelines.poc_pipeline.execute_step2'   
+                        }
+                    }    
                 }
-            } 
+                stage('execute_step2'){
+                    steps {                        
+                        withPythonEnv('python') {
+                            sh 'python -u -m resources.pipelines.poc_pipeline.execute_step2'   
+                        }
+                    }    
+                }
+            }
         }
         stage('Cleaning') {
             steps {
