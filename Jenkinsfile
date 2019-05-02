@@ -15,7 +15,7 @@ agent any
                 stage('execute_step1'){
                     steps {
                         withPythonEnv('python') {
-                            sh 'python -u -m resources.pipelines.poc_pipeline.execute_step2'   
+                            sh 'python -u -m resources.pipelines.poc_pipeline.execute_step1'   
                         }
                     }    
                 }
